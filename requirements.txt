@@ -1,0 +1,32 @@
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# Core ML
+torch==2.1.2
+numpy==1.26.4
+transformers==4.38.2
+datasets==2.18.0
+tokenizers==0.15.2
+safetensors==4.2.0
+accelerate==0.28.0
+peft==0.9.0
+einops==0.7.0
+
+# Configuration
+hydra-core==1.3.2
+omegaconf==2.3.0
+pydantic==2.6.3
+python-dotenv==1.0.1
+
+# Experiment tracking
+wandb==0.16.4
+tensorboard==2.16.2
+
+# Utilities
+tqdm==4.66.2
+rich==13.7.1
+typer==0.9.4
+huggingface-hub==0.21.3
+scipy==1.12.0
+
+# Typing
+typing-extensions==4.10.0

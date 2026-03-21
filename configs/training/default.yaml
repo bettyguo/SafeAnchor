@@ -1,0 +1,59 @@
+# ===========================================================================
+# Default Training Configuration
+# ===========================================================================
+
+# Optimizer
+optimizer:
+  _target_: torch.optim.AdamW
+  lr: 2.0e-4
+  weight_decay: 0.01
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+
+# Learning rate scheduler
+scheduler:
+  name: cosine
+  warmup_ratio: 0.03
+  min_lr: 1.0e-6
+
+# Training loop
+batch_size: 8               # Per-device batch size
+gradient_accumulation_steps: 1
+max_grad_norm: 1.0
+epochs_per_domain: 3        # Number of training epochs per domain
+train_samples_per_domain: 5000  # Training examples per domain
+
+# Evaluation
+eval_every_n_steps: 500
+save_every_n_steps: 1000
+
+# Precision
+fp16: false
+bf16: true
+
+# Gradient checkpointing (reduces VRAM at cost of compute)
+gradient_checkpointing: false
+
+# Resumption
+resume: null
+
+# Domain datasets
+datasets:
+  medical:
+    hf_id: bigbio/med_qa
+    split: train
+    max_samples: 5000
+  legal:
+    hf_id: nguha/legalbench
+    split: train
+    max_samples: 5000
+  code:
+    hf_id: sahil2801/CodeAlpaca-20k
+    split: train
+    max_samples: 5000
+
+# Tokenizer
+max_seq_length: 512
+
+# Seeds for multi-seed runs
+experiment_seeds: [42, 123, 456, 789, 1234]

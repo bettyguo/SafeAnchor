@@ -1,0 +1,128 @@
+# ===========================================================================
+# .gitignore for SafeAnchor
+# ===========================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Type Checking / Linting
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# Data (large files)
+data/raw/
+data/processed/
+*.csv
+*.tsv
+*.jsonl
+*.parquet
+*.arrow
+*.h5
+*.hdf5
+
+# Model Checkpoints
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+
+# Outputs & Logs
+outputs/
+logs/
+runs/
+wandb/
+mlruns/
+lightning_logs/
+hydra_outputs/
+
+# Documentation
+site/
+docs/_build/
+
+# Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets.yaml
+secrets.json
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Misc
+*.log
+*.tmp
+*.temp
+*.bak
+.cache/

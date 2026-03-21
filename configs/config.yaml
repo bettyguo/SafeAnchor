@@ -1,0 +1,46 @@
+# ===========================================================================
+# SafeAnchor — Main Configuration
+# Usage: python train.py [overrides]
+# Example: python train.py model=mistral training.lora.rank=32
+# ===========================================================================
+
+defaults:
+  - model: llama2
+  - training: default
+  - _self_
+
+# Experiment identity
+project: safeanchor
+experiment_name: safeanchor_${model.name}_${now:%Y-%m-%d_%H-%M-%S}
+
+# Global seed (overridden per seed run)
+seed: 42
+deterministic: true
+
+# Domain adaptation pipeline
+domains:
+  - medical
+  - legal
+  - code
+
+domain_order: [medical, legal, code]
+
+# Safety calibration
+safety:
+  calibration_dataset: "PKU-Alignment/BeaverTails"
+  probe_dataset: "walledai/HarmBench"
+  n_calibration: 500        # N_s: safety calibration set size
+  n_probe: 200              # safety probe set size
+  llamaguard_model: "meta-llama/LlamaGuard-7b"
+
+# Experiment tracking
+wandb:
+  enabled: false
+  project: safeanchor
+  entity: null
+  tags: []
+  notes: null
+
+# Output paths
+output_dir: outputs/${experiment_name}
+checkpoint_dir: checkpoints

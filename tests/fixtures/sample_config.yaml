@@ -1,0 +1,57 @@
+seed: 42
+deterministic: true
+project: safeanchor
+experiment_name: test_run
+
+domains:
+  - medical
+  - legal
+  - code
+
+domain_order: [medical, legal, code]
+
+model:
+  name: llama2
+  base_model: meta-llama/Llama-2-7b-chat-hf
+  lora:
+    rank: 16
+    alpha: 32
+    dropout: 0.05
+    target_modules: [q_proj, k_proj, v_proj, o_proj]
+    bias: none
+    task_type: CAUSAL_LM
+  ssi:
+    rho: 0.90
+    lambda_adaptive: 0.5
+  csm:
+    tau: 0.05
+    e_repair: 200
+    beta: 1.0
+  gamma: 0.1
+
+training:
+  optimizer:
+    lr: 2.0e-4
+    weight_decay: 0.01
+    betas: [0.9, 0.999]
+    eps: 1.0e-8
+  scheduler:
+    name: cosine
+    warmup_ratio: 0.03
+  batch_size: 8
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  epochs_per_domain: 3
+  train_samples_per_domain: 5000
+  max_seq_length: 512
+  bf16: true
+  gradient_checkpointing: false
+  resume: null
+
+safety:
+  n_calibration: 500
+  n_probe: 200
+  llamaguard_model: meta-llama/LlamaGuard-7b
+
+wandb:
+  enabled: false

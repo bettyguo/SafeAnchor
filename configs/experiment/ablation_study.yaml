@@ -1,0 +1,30 @@
+# ===========================================================================
+# Ablation Study
+# Tests each SafeAnchor component incrementally on Llama-2-7B-Chat
+# ===========================================================================
+
+defaults:
+  - /config
+  - /model: llama2
+  - /training: default
+  - _self_
+
+seed: 42
+domain_order: [medical, legal, code]
+
+# Ablation variants — controlled via CLI overrides:
+#   python train.py --config-name=experiment/ablation_study model.ablation=ssi_only
+#   python train.py --config-name=experiment/ablation_study model.ablation=ssi_osca_strict
+#   python train.py --config-name=experiment/ablation_study model.ablation=ssi_osca_adaptive
+#   python train.py --config-name=experiment/ablation_study model.ablation=full_no_csm
+#   python train.py --config-name=experiment/ablation_study model.ablation=full_no_incremental
+#   python train.py --config-name=experiment/ablation_study model.ablation=full
+
+ablation_mode: full         # Options: ssi_only | ssi_osca_strict | ssi_osca_adaptive
+                            #          full_no_csm | full_no_incremental | full
+
+experiment_name: ablation_${ablation_mode}_seed${seed}
+
+wandb:
+  enabled: false
+  tags: [ablation, llama2]

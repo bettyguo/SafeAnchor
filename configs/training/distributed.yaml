@@ -1,0 +1,20 @@
+# ===========================================================================
+# Distributed Training Configuration — Multi-GPU
+# Usage: torchrun --nproc_per_node=2 train.py training=distributed
+# ===========================================================================
+
+defaults:
+  - default
+
+# Larger effective batch size with 2 GPUs
+batch_size: 8               # Per-device (effective = 8 × 2 GPUs = 16)
+gradient_accumulation_steps: 1
+
+# Enable bf16 for efficiency
+bf16: true
+fp16: false
+
+# FSDP / DDP settings
+distributed:
+  backend: nccl
+  find_unused_parameters: false

@@ -1,0 +1,19 @@
+# ===========================================================================
+# Reproduce Table 2 (Mistral-7B-Instruct)
+# Sequence: Medical → Legal → Code
+# ===========================================================================
+
+defaults:
+  - /config
+  - /model: mistral
+  - /training: default
+  - _self_
+
+seed: 42
+domain_order: [medical, legal, code]
+
+experiment_name: reproduce_table2_mistral_seed${seed}
+
+wandb:
+  enabled: false
+  tags: [table2, mistral, reproduce]

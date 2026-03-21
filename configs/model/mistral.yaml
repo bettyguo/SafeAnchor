@@ -1,0 +1,41 @@
+# ===========================================================================
+# Model: Mistral-7B-Instruct
+# ===========================================================================
+
+name: mistral
+base_model: mistralai/Mistral-7B-Instruct-v0.2
+model_type: mistral
+
+# LoRA configuration
+lora:
+  rank: 16                  # r: LoRA rank
+  alpha: 32                 # LoRA scaling factor
+  dropout: 0.05
+  target_modules:           # Applied to Q, K, V, O projections
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+  bias: none
+  task_type: CAUSAL_LM
+
+# SSI hyperparameters
+ssi:
+  rho: 0.90                 # Variance threshold for subspace selection (90%)
+  lambda_adaptive: 0.5      # λ: adaptive projection strictness
+
+# CSM hyperparameters
+csm:
+  tau: 0.05                 # τ: fractional safety tolerance threshold
+  e_repair: 200             # repair steps for corrective replay
+  beta: 1.0                 # β: safety-task balance in replay loss
+
+# Anchor loss
+gamma: 0.1                  # γ: anchor loss coefficient
+
+# Generation config (for evaluation)
+generation:
+  max_new_tokens: 512
+  temperature: 1.0
+  do_sample: false
+  pad_token_id: 2
