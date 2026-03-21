@@ -170,7 +170,7 @@ safeanchor/
 │   └── experiment/             # Experiment configs
 │
 ├── src/
-│   ├── models/                 # SafeAnchor model components
+│   ├──  models/                 # SafeAnchor model components
 │   │   ├── safety_subspace.py  # SSI: Fisher Information subspace identification
 │   │   ├── osca.py             # OSCA: Orthogonal safety-constrained adaptation
 │   │   ├── csm.py              # CSM: Cumulative safety monitoring
