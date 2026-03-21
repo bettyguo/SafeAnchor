@@ -168,7 +168,6 @@ safeanchor/
 │   ├── model/                  # Model-specific configs (llama2, mistral)
 │   ├── training/               # Training configs (default, debug, distributed)
 │   └── experiment/             # Experiment configs
-│
 ├── src/
 │   ├── models/                 # SafeAnchor model components
 │   │   ├── safety_subspace.py  # SSI: Fisher Information subspace identification
@@ -180,7 +179,6 @@ safeanchor/
 │   ├── training/               # Training loop and callbacks
 │   ├── evaluation/             # Safety metrics and evaluation
 │   └── utils/                  # Checkpointing, logging
-│
 ├── tests/                      # Comprehensive test suite
 ├── train.py                    # Main training entry point
 ├── evaluate.py                 # Evaluation entry point
