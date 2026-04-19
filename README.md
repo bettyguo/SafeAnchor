@@ -21,7 +21,6 @@
 7. [Configuration](#configuration)
 8. [Evaluation](#evaluation)
 9. [Compute Requirements](#compute-requirements)
-10. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -148,12 +147,6 @@ This runs the full three-domain pipeline (Medical → Legal → Code) with defau
 
 ```bash
 python train.py model=mistral
-```
-
-### 5. Evaluate a trained model
-
-```bash
-python evaluate.py --checkpoint checkpoints/safeanchor_llama2.pt
 ```
 
 ---
