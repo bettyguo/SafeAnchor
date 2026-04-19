@@ -22,7 +22,6 @@
 8. [Evaluation](#evaluation)
 9. [Compute Requirements](#compute-requirements)
 10. [Troubleshooting](#troubleshooting)
-11. [Contact](#contact)
 
 ---
 
@@ -363,12 +362,4 @@ python train.py training.batch_size=4 training.gradient_accumulation_steps=2
 1. **CUDA OOM during SSI:** Reduce `model.safety_calibration.n_samples` to 250.
 2. **LlamaGuard not available:** The CSM module requires `meta-llama/LlamaGuard-7b`; ensure HuggingFace access is configured.
 3. **Reproducibility differences:** Ensure `CUBLAS_WORKSPACE_CONFIG=:4096:8` is set before training.
-
----
-
-## Contact
-
-This repository is released anonymously for double-blind review.
-
-Post-review, author contact information will be provided here.
 
